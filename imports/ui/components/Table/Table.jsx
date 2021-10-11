@@ -2,13 +2,13 @@ import React from 'react';
 import ReactTable from 'react-table';
 import withDraggableColumns from 'react-table-hoc-draggable-columns';
 import { Spin, message } from 'antd';
-import { StringUtils } from '/lib/StringUtils';
+import { generateUUID } from '/utils/stringUtils';
 import { withStyles } from '@material-ui/core/styles';
 
 // Styles
 import 'react-table/react-table.css';
 import 'react-table-hoc-draggable-columns/dist/styles.css';
-import '../../styles/theme/widgets/table.less';
+import '/imports/ui/styles/theme/components/table.less';
 
 import PropTypes from 'prop-types';
 import { map, isEmpty } from 'lodash';
@@ -28,7 +28,7 @@ class Table extends React.PureComponent {
             columns: props.columns,
             desc: true,
             isExpanded: false,
-            keyTable: `key${StringUtils.generateUUID()}`,
+            keyTable: `key${generateUUID()}`,
         };
 
         this.initBind();
@@ -217,13 +217,13 @@ class Table extends React.PureComponent {
             classCursor = '';
 
         classMinHeightRow =
-            !StringUtils.isEmpty(minHeightRow) && minHeightRow < 7 && minHeightRow > 0
+            minHeightRow && minHeightRow < 7 && minHeightRow > 0
                 ? `rt-min-hb-${minHeightRow}`
                 : '';
-        classAlignElementsRow = StringUtils.isEmpty(alignElementsRow)
+        classAlignElementsRow = !alignElementsRow
             ? ''
             : alignElementsRow;
-        customClassName = StringUtils.isEmpty(className) ? '' : className;
+        customClassName = !className ? '' : className;
         classBorderTable = border ? '' : 'rt-table-expandable';
         classSortable =
             (!loadMore && !sortable) || (loadMore && !sortable)
@@ -446,7 +446,7 @@ class Table extends React.PureComponent {
         if ((!loadMore && !sortable) || (loadMore && !sortable)) {
             isSortable = false;
         }
-        const containerClass = StringUtils.isEmpty(containerClassName)
+        const containerClass = !containerClassName
             ? ''
             : containerClassName;
 
