@@ -15,7 +15,8 @@ export const useStyles = makeStyles((theme) =>
             background: '#FFF',
             flex: 1,
             marginTop: 10,
-            overflow: 'hidden'
+            overflow: 'hidden',
+            padding: 10
         }
     })
 );

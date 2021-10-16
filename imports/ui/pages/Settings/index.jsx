@@ -8,6 +8,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import { useStyles } from './styles';
+import { AccountsClasificationContainer } from '/imports/ui/containers/AccountsClasificationContainer';
 import { AccountsCatalogContainer } from '/imports/ui/containers/AccountsCatalogContainer';
 
 const Settings = props => {
@@ -26,18 +27,22 @@ const Settings = props => {
         // TODO: Remove the other cases (are just for example) and add the correct ones
         switch (selectedTab) {
             case 0:
-                tab = <AccountsCatalogContainer />;
+                tab = <AccountsClasificationContainer />;
                 break;
 
             case 1:
-                tab = (<label htmlFor="">Indices Financieros</label>);
+                tab = <AccountsCatalogContainer />;
                 break;
 
             case 2:
-                tab = (<label htmlFor="">Prueba</label>);
+                tab = (<label htmlFor="">Indices Financieros</label>);
                 break;
 
             case 3:
+                tab = (<label htmlFor="">Prueba</label>);
+                break;
+
+            case 4  :
                 tab = (<label htmlFor="">Test, jsut a test tab</label>);
                 break;
         
@@ -45,14 +50,18 @@ const Settings = props => {
                 break;
         }
 
-        return tab;
+        return (
+            <div className={classes.tabsContainer}>
+                {tab}
+            </div>
+        );
     };
 
     return (
         <div className={classes.root}>
             <AppBar
                 position="static"
-                color="primary"
+                color="default"
             >
                 <Tabs
                     centered
@@ -61,6 +70,10 @@ const Settings = props => {
                     textColor="primary"
                     value={selectedTab}
                 >
+                    <Tab
+                        label="Clasificación de Cuentas"
+                        icon={<LaptopChromebookIcon />}
+                    />
                     <Tab
                         label="Catálogo de Cuentas"
                         icon={<LibraryBooksIcon />}
