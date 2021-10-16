@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className={classes.root}>
             {/** TODO: Add the Drawer here */}
             <div className={classes.container}>
                 <Header />
