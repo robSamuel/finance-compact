@@ -27,22 +27,18 @@ const Settings = props => {
         // TODO: Remove the other cases (are just for example) and add the correct ones
         switch (selectedTab) {
             case 0:
-                tab = <AccountsClasificationContainer />;
-                break;
-
-            case 1:
                 tab = <AccountsCatalogContainer />;
                 break;
 
-            case 2:
+            case 1:
                 tab = (<label htmlFor="">Indices Financieros</label>);
                 break;
 
-            case 3:
+            case 2:
                 tab = (<label htmlFor="">Prueba</label>);
                 break;
 
-            case 4  :
+            case 3:
                 tab = (<label htmlFor="">Test, jsut a test tab</label>);
                 break;
         
@@ -70,10 +66,6 @@ const Settings = props => {
                     textColor="primary"
                     value={selectedTab}
                 >
-                    <Tab
-                        label="Clasificación de Cuentas"
-                        icon={<LaptopChromebookIcon />}
-                    />
                     <Tab
                         label="Catálogo de Cuentas"
                         icon={<LibraryBooksIcon />}

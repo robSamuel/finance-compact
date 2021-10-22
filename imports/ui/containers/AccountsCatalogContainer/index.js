@@ -1,6 +1,6 @@
-import { MeteorContainer } from "/imports/ui/components/MeteorContainer";
-import { AccountsCatalog as AccountsCatalogCollection } from "/imports/api/settings/collections";
-import AccountsCatalog from "/imports/ui/pages/Settings/AccountsCatalog";
+import { MeteorContainer } from '/imports/ui/components/MeteorContainer';
+import { AccountsCatalog as AccountsCatalogCollection } from '/imports/api/settings/collections';
+import AccountsCatalog from '/imports/ui/pages/Settings/AccountsCatalog';
 
 const wrap = () => {
   const handle = Meteor.subscribe('accountsCatalog', {});
